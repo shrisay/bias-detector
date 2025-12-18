@@ -1,0 +1,42 @@
+{% extends "biasdetector/layout.html" %}
+{% block style %}
+<style>
+    [data-bs-theme="light"] body {
+        background-image: url('/static/biasdetector/SVG/layered-waves-light.svg');
+    }
+
+    [data-bs-theme="dark"] body {
+        background-image: url('/static/biasdetector/SVG/layered-waves-dark.svg');
+    }
+
+    @keyframes move {
+        0%, 60%, 100% {
+            transform: translateX(0);
+        }
+        30% {
+            transform: translateX(2px);
+        }
+    }
+
+    #arrow {
+        display: inline-block;
+        animation: move 2.5s ease infinite;
+    }
+</style>
+{% endblock %}
+
+{% block title %}Bias Detection{% endblock %}
+
+{% block body %}
+    <section class="d-flex flex-column align-items-center text-center px-3" style="margin-top: 5.5em;">
+        <h1 class="display-3 mb-3">
+            <strong>Want to test your articles for bias?</strong>
+        </h1>
+        <p class="lead mb-5">
+            Our AI model analyzes language to detect bias in news articles. Just paste a link and let the analysis begin.
+        </p>
+        <p class="mt-3">
+            <a href="{% url 'detect_view' %}" class="btn btn-dark btn-lg" id="bias-button">Check for Bias <span id="arrow" style="font-size:large">❯</span></a>
+        </p>
+    </section>
+{% endblock %}

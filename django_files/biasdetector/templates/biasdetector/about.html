@@ -1,0 +1,30 @@
+{% extends "biasdetector/layout.html" %}
+{% block style %}
+<style>
+    [data-bs-theme="light"] body {
+        background-image: url('/static/biasdetector/SVG/light-about.svg');
+    }
+
+    [data-bs-theme="dark"] body {
+        background-image: url('/static/biasdetector/SVG/dark-about.svg');
+    }
+</style>
+{% endblock %}
+
+{% block title %}About Us{% endblock %}
+
+{% block body %}
+    <section class="d-flex flex-column align-items-center text-center px-3 mt-3">
+        <h1 class="display-4 mb-3">
+            <strong>About Us</strong>
+        </h1>
+        <p class="lead mb-5">
+            From the design of this webpage, to the fine-tuning of the AI model behind it, this full-stack application has been built by a single student in high school.
+            As an avid participant in Model United Nations conferences, I have spent countless hours researching numerous world issues. I came to the realization that news articles are biased more often than one might think, subtly attempting to steer their readers towards a certain ideology.<br><br>
+            Then I wondered: what if there was a way for me to detect bias or the ever-frustrating clickbait in an article without ever reading it?
+            Machine Learning has been a topic of my fascination for a while, and this project seemed like the perfect opportunity to learn and apply its concepts.
+            Combining my skills from Harvard's CS50 Web, introductory ML courses on Kaggle and a little help from my older sister, I have built this webpage using Python's Django framework and JavaScript for interactive features (such as toggling dark mode).<br><br>
+            <strong>For further information on the AI model and the working of this project, visit the <a href="">How it Works</a> section.</strong>
+        </p>
+    </section>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "biasdetector/layout.html" %}
+{% block style %}
+<style>
+    [data-bs-theme="light"] body {
+        background-image: url('/static/biasdetector/SVG/light-about.svg');
+    }
+
+    [data-bs-theme="dark"] body {
+        background-image: url('/static/biasdetector/SVG/dark-about.svg');
+    }
+</style>
+{% endblock %}
+
+{% block title %}Feedback{% endblock %}
+
+{% block body %}
+    <section class="d-flex flex-column align-items-center text-center px-3 mt-3">
+        <h1 class="display-4 mb-3">
+            <strong>Feedback</strong>
+        </h1>
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label">Article URL</label>
+                <input type="text" class="form-control" value="{{ article_url }}" disabled>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Predicted Bias</label>
+                <input type="text" class="form-control" value="{{ bias }}" disabled>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Do you agree with this classification?</label>
+                <select class="form-select" name="agree">
+                    <option value="agree" selected>Agree</option>
+                    <option value="disagree">Disagree</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Additional Comments</label>
+                <textarea class="form-control" name="comments" rows="5"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit Feedback</button>
+        </form>
+    </section>
+{% endblock %}

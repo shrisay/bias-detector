@@ -1,0 +1,30 @@
+{% extends "biasdetector/layout.html" %}
+{% block style %}
+<style>
+    [data-bs-theme="light"] body {
+        background-image: url('/static/biasdetector/SVG/light-about.svg');
+    }
+
+    [data-bs-theme="dark"] body {
+        background-image: url('/static/biasdetector/SVG/dark-about.svg');
+    }
+</style>
+{% endblock %}
+
+{% block title %}How it Works{% endblock %}
+
+{% block body %}
+    <section class="d-flex flex-column align-items-center text-center px-3 mt-3">
+        <h1 class="display-4 mb-3">
+            <strong>How it Works</strong>
+        </h1>
+        <p class="lead mb-5">
+            The back-end of this project uses a RoBERTa-based model, called <a href="https://github.com/launchnlp/POLITICS/tree/main">POLITICS</a>.<br> 
+            I fine-tuned this model to classify news articles into 4 custom categories of bias: <strong>neutral, nationalistic, sensationalism, and religious/cultural bias.</strong><br>
+            Since these classifications are unavailable in typical datasets, the model was trained on a custom dataset that I came up with, comprising of over 700 sentences.
+            With limited data, and the fact that I am the only developer, the accuracy is not perfect, but the results are already revealing how often subtle bias can appear in text.<br><br>
+            I am also actively working on developing a feature for detection of clickbait in news articles. No more poring over misleading articles for hours to find the information you need!<br><br>
+            <strong>I have therefore added a feedback feature to this webpage, so that users can directly contribute to improving the model over time. Your feedback will be invaluable in shaping the future of ethical AI.</strong>
+        </p>
+    </section>
+{% endblock %}

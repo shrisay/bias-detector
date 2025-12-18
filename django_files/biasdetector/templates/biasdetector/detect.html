@@ -1,0 +1,51 @@
+{% extends "biasdetector/layout.html" %}
+{% block style %}
+<style>
+    [data-bs-theme="light"] body {
+        background-image: url('/static/biasdetector/SVG/layered-waves-light.svg');
+    }
+
+    [data-bs-theme="dark"] body {
+        background-image: url('/static/biasdetector/SVG/layered-waves-dark.svg');
+    }
+
+    [data-bs-theme="dark"] #articleUrl:focus {
+        border-color: white;
+        box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+    }
+
+    [data-bs-theme="light"] #articleUrl:focus {
+        border-color: #212529;
+        box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.25);
+    }
+
+    [data-bs-theme="dark"] #articleUrl {
+        border: 1px solid whitesmoke;
+    }
+
+    [data-bs-theme="light"] #articleUrl {
+        border: 1px solid black;
+    }
+</style>
+{% endblock %}
+
+{% block title %}Bias Detector{% endblock %}
+
+{% block body %}
+    <section class="px-5 py-5">
+        <h1 class="display-5 mb-3">
+            <strong>Bias Detector</strong>
+        </h1>
+        <div id="form">
+            <h3>Enter article URL</h3>
+            <form id="detect-form">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <input type="url" class="form-control" style="height:3em;" id="articleUrl" placeholder="https://example.com/article" required>
+                </div>
+                <button class="btn btn-dark btn-lg" id="submit">Check for Bias</button>
+            </form>
+        </div>
+        <div id="results" class="mb-5"></div>
+    </section>
+{% endblock %}
