@@ -173,8 +173,4 @@ Example JSON returned by the backend:
 - Move NLP logic into a dedicated `distilbert.py` module  
 - Deploy on Render / Vercel / Docker  
 
----
-
-## Example
-An example output is included in the repository as a text file.
 
